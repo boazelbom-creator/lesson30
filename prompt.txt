@@ -1,0 +1,31 @@
+
+Create a Python-based multi-agent system structured as a binary tree with 3 levels:
+
+Root agent at level 1,
+Two intermediate agents at level 2,
+Four leaf agents at level 3.
+
+Each agent runs as an independent FastAPI HTTP server on localhost with different ports.
+Behavior:
+
+The root receives tasks via /task endpoint and splits them into subtasks for its two children.
+Each intermediate agent forwards subtasks to its leaf children.
+Each leaf agent simulates work by generating a random number representing tokens_processed and returns it.
+Intermediate agents aggregate results from their leaves and return them to the root.
+The root aggregates everything and returns the final result.
+
+Additional Features:
+
+Add /health endpoint for status checks.
+Implement dynamic load balancing: if one intermediate has significantly more tokens processed than the other, reassign one leaf from the heavier intermediate to the lighter one using an /update_children endpoint.
+Provide scripts to:
+
+Launch all agents locally (Linux shell script).
+
+Include example curl commands to test the system.
+Make the code modular and easy to extend."*
+
+
+curl http://localhost:8000/stats
+curl -X POST http://localhost:8000/rebalance
+
