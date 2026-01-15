@@ -4,14 +4,74 @@ A Python-based multi-agent system structured as a binary tree with 3 levels. Eac
 
 ## Architecture
 
+### Network Diagram (Initial State)
+
+```mermaid
+graph TD
+    Root["Root Agent<br/>:8000"] --> IL["Intermediate Left<br/>:8001"]
+    Root --> IR["Intermediate Right<br/>:8002"]
+    IL --> L0["Leaf 0<br/>:8003"]
+    IL --> L1["Leaf 1<br/>:8004"]
+    IR --> L2["Leaf 2<br/>:8005"]
+    IR --> L3["Leaf 3<br/>:8006"]
+
+    style Root fill:#e1f5fe
+    style IL fill:#fff3e0
+    style IR fill:#fff3e0
+    style L0 fill:#e8f5e9
+    style L1 fill:#e8f5e9
+    style L2 fill:#e8f5e9
+    style L3 fill:#e8f5e9
 ```
-                    Root (port 8000)
-                   /                \
-    Intermediate Left         Intermediate Right
-       (port 8001)               (port 8002)
-        /      \                  /        \
-    Leaf 0   Leaf 1          Leaf 2     Leaf 3
-  (port 8003) (port 8004)   (port 8005) (port 8006)
+
+### Network Diagram (After Load Balancing)
+
+When one intermediate processes significantly more tokens, a leaf is moved to balance the load:
+
+```mermaid
+graph TD
+    Root["Root Agent<br/>:8000"] --> IL["Intermediate Left<br/>:8001"]
+    Root --> IR["Intermediate Right<br/>:8002"]
+    IL --> L0["Leaf 0<br/>:8003"]
+    IL --> L1["Leaf 1<br/>:8004"]
+    IL --> L3["Leaf 3<br/>:8006"]
+    IR --> L2["Leaf 2<br/>:8005"]
+
+    style Root fill:#e1f5fe
+    style IL fill:#fff3e0
+    style IR fill:#fff3e0
+    style L0 fill:#e8f5e9
+    style L1 fill:#e8f5e9
+    style L2 fill:#e8f5e9
+    style L3 fill:#c8e6c9
+```
+
+### Text Diagram
+
+```
+Level 1 (Root):
+                    ┌─────────────────┐
+                    │   Root Agent    │
+                    │   port: 8000    │
+                    └────────┬────────┘
+                             │
+            ┌────────────────┴────────────────┐
+            │                                 │
+            ▼                                 ▼
+Level 2 (Intermediate):
+   ┌─────────────────┐               ┌─────────────────┐
+   │ Intermediate    │               │ Intermediate    │
+   │ Left (:8001)    │               │ Right (:8002)   │
+   └────────┬────────┘               └────────┬────────┘
+            │                                 │
+      ┌─────┴─────┐                     ┌─────┴─────┐
+      │           │                     │           │
+      ▼           ▼                     ▼           ▼
+Level 3 (Leaf):
+ ┌─────────┐ ┌─────────┐           ┌─────────┐ ┌─────────┐
+ │ Leaf 0  │ │ Leaf 1  │           │ Leaf 2  │ │ Leaf 3  │
+ │ (:8003) │ │ (:8004) │           │ (:8005) │ │ (:8006) │
+ └─────────┘ └─────────┘           └─────────┘ └─────────┘
 ```
 
 ## Features
