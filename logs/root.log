@@ -1,0 +1,21 @@
+INFO:     Started server process [2418]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+Root agent starting with children: ['intermediate_left', 'intermediate_right']
+INFO:     127.0.0.1:58544 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45076 - "POST /task HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49102 - "POST /task HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49114 - "POST /task HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49118 - "POST /task HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49134 - "POST /task HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49144 - "POST /task HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49160 - "GET /stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43092 - "POST /set_threshold?threshold=0.05 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45032 - "POST /rebalance HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47334 - "POST /task HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [2418]
+Root agent shutting down...

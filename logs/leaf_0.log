@@ -1,0 +1,17 @@
+INFO:     Started server process [2406]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8003 (Press CTRL+C to quit)
+Leaf agent 'leaf_0' starting...
+INFO:     127.0.0.1:39136 - "POST /task HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59594 - "POST /task HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59606 - "POST /task HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59622 - "POST /task HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59632 - "POST /task HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59648 - "POST /task HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39048 - "POST /task HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [2406]
+Leaf agent 'leaf_0' shutting down...

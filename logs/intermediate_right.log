@@ -1,0 +1,20 @@
+INFO:     Started server process [2414]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+Intermediate agent 'intermediate_right' starting with children: ['leaf_2', 'leaf_3']
+INFO:     127.0.0.1:45984 - "POST /task HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54512 - "POST /task HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54524 - "POST /task HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54538 - "POST /task HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54540 - "POST /task HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54548 - "POST /task HTTP/1.1" 200 OK
+Agent 'intermediate_right' updated children to: ['leaf_2']
+INFO:     127.0.0.1:41974 - "POST /update_children HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52816 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50770 - "POST /task HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [2414]
+Intermediate agent 'intermediate_right' shutting down...
